@@ -39,8 +39,13 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
+        <h4 className="text-center">Recensioni</h4>
         {this.state.comments.map((comment, index) => (
-          <p key={`comment-${index}`}>{comment.comment}</p>
+          <div className="text-center" key={`comment-${index}`}>
+            <p className="m-0 p-0">{comment.author}</p>
+            <p className="m-0 p-0">{comment.comment}</p>
+            <p>{comment.rate} STELL*!</p>
+          </div>
         ))}
         <AddComment asin={this.props.asin} />
       </div>

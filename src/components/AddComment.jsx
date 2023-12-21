@@ -42,15 +42,13 @@ class AddComment extends Component {
   };
 
   handleChange = (propertyName, propertyValue) => {
-    this.setState((prevState) => ({
-      comments: { ...prevState.comments, [propertyName]: propertyValue },
-    }));
+    this.setState({ comments: { ...this.state.comments, [propertyName]: propertyValue } });
   };
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form onSubmit={this.handleSubmit} className="bg-light m-3 p-3 text-center">
+        <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
           <Form.Label>Lascia una recensione!</Form.Label>
           <Form.Control
             type="text"
@@ -60,7 +58,7 @@ class AddComment extends Component {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3 text-center" controlId="formBasicPassword">
           <Form.Label>Lascia un voto da 1 a 5!</Form.Label>
           <Form.Select
             value={this.state.comments.rate}
@@ -73,7 +71,7 @@ class AddComment extends Component {
             <option>5</option>
           </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit">
           Invia
         </Button>
       </Form>
