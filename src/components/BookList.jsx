@@ -4,10 +4,10 @@ import { Component } from "react";
 
 class BookList extends Component {
   state = {
-    searchQuery: ""
+    searchQuery: "",
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ searchQuery: event.target.value });
   };
 
@@ -25,10 +25,10 @@ class BookList extends Component {
         </Col>
 
         {this.props.booksArray
-          .filter(book => book.title.toLowerCase().includes(this.state.searchQuery.toLowerCase()))
-          .map(book => (
+          .filter((book) => book.title.toLowerCase().includes(this.state.searchQuery.toLowerCase()))
+          .map((book) => (
             <Col xs={12} md={4} key={book.asin}>
-              <SingleBook book={book} />
+              <SingleBook book={book} asin={book.asin} />
             </Col>
           ))}
       </Row>
